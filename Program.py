@@ -1,7 +1,10 @@
 from tkinter import *
 
 def button_pressed(num):
-    pass
+    global equation_text
+
+    equation_text =  equation_text +str(num)
+    equation_label.set(equation_text)
 
 def equals():
     pass
@@ -13,7 +16,6 @@ window=Tk()
 window.title('Calculator')
 window.geometry('400x600')          
 
-equation_text=""
 equation_text=""
 
 equation_label= StringVar()
