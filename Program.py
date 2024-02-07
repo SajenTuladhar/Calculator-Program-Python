@@ -4,12 +4,12 @@ def button_pressed(num):
     global equation_text
 
     equation_text =  equation_text +str(num)
-    equation_label.set(equation_text)
+    equation_label.set(equation_text) # text displayed on label in gui 
 
 def equals():
     global equation_text
     try:
-        total= str(eval(equation_text))
+        total= str(eval(equation_text)) # eval takes string as input and excute it as integer
         equation_label.set(total)
         equation_text = total
 
@@ -35,7 +35,7 @@ equation_text=""
 
 equation_label= StringVar()
 
-label= Label(window, textvariable=equation_label,font=('Arial',20),bg='white',width=30,height=2)
+label= Label(window, textvariable=equation_label,font=('Arial',20),bg='white',width=30,height=2) # any change made to equation label will be reflected in label text
 label.pack()
 
 frame= Frame(window)
