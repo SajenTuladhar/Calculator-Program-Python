@@ -7,10 +7,25 @@ def button_pressed(num):
     equation_label.set(equation_text)
 
 def equals():
-    pass
+    global equation_text
+    try:
+        total= str(eval(equation_text))
+        equation_label.set(total)
+        equation_text = total
+
+    except ZeroDivisionError:
+        equation_label.set('Arithmetic error')
+        equation_text=""
+
+    except SyntaxError:
+        equation_label.set('Syntax error')
+        equation_text=""
+
 
 def clear():
-    pass
+    global equation_text
+    equation_label.set("")
+    equation_text=""
 
 window=Tk()
 window.title('Calculator')
@@ -60,7 +75,7 @@ button0.grid(row=3,column=0)
 Dec_point_button= Button(frame,text='.',height=4,width=8,font=35,command=lambda:button_pressed('.'))
 Dec_point_button.grid(row=3,column=1)
 
-equals_button= Button(frame,text='=',height=4,width=8,font=35,command=lambda:button_pressed('='))
+equals_button= Button(frame,text='=',height=4,width=8,font=35,command=equals)
 equals_button.grid(row=3,column=2)
 
 add_button= Button(frame,text='+',height=4,width=8,font=35,command=lambda:button_pressed('+'))
